@@ -4,7 +4,7 @@
 namespace CorpJorge\rarpassword;
 
 
-class rarPassword
+class rarPasswordIndex
 {
     public function passwordRar()
     {
