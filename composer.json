@@ -1,0 +1,33 @@
+{
+  "name":"corpjorge/rarpassword",
+  "type":"library",
+  "description":"Descomprimir Winrar con contraseña",
+  "keywords":[
+    "Winrar"
+  ],
+  "license":"MIT",
+  "authors":[
+    {
+      "name":"corpjorge",
+      "role":"Developer"
+    }
+  ],
+  "support":{
+    "source":"https://github.com/corpjorge/rarpassword",
+    "issues":"https://github.com/corpjorge/rarpassword/issues"
+  },
+  "require":{
+    "php":"^7.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  },
+  "autoload":{
+    "classmap": [
+      "src/"
+    ],
+    "psr-4": {
+      "CorpJorge\\rarpassword\\": "src"
+    }
+  }
+}
