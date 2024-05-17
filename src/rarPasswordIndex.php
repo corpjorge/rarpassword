@@ -8,34 +8,43 @@ class rarPasswordIndex
 {
     public function passwordRar()
     {
-        error_reporting(0);
 
-        $filepath = "C:/ruta/archivo.rar";
+        $filepath = 'route';
+        $directorioDestino = 'route';
 
         $inicio = array(
-            'inicio1',
-            'Inicio2'
+            'value',
         );
 
         $final = array(
-            'final1',
-            'final2'
+            'value',
         );
 
-        foreach ($inicio as $ini ) {
-
+        foreach ($inicio as $ini) {
             foreach ($final as $fin) {
-                $pass = $ini.'.'.$fin;
+                $pass = $ini . '.' . $fin;
 
-                $rar_file = rar_open($filepath,$pass);
-                $list = rar_list($rar_file);
+                echo $pass . "\n";
 
-                if ($list) {
-                    echo $pass;
+                $comando = "unrar x -o+ -p'$pass' \"$filepath\" \"$directorioDestino\"";
+
+
+                exec($comando, $output, $return_var);
+
+                if ($return_var === 0) {
+                    echo "Archivo descomprimido con éxito usando la contraseña: $pass\n";
+                    return;
                 }
-                rar_close($rar_file);
             }
         }
+
+        echo "No se pudo descomprimir el archivo con ninguna de las contraseñas proporcionadas\n";
+
     }
 
 }
+
+
+$rar = new rarPasswordIndex();
+$rar->passwordRar();
+
